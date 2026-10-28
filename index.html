@@ -172,6 +172,22 @@ dialog.cert::backdrop{background:rgba(10,18,32,.62)}
 @media (max-width:820px){.top .wrap{gap:10px}.nav{flex:1 1 auto}}
 .asg{grid-template-columns:repeat(2,minmax(0,1fr))}
 @media (max-width:820px){.asg{grid-template-columns:minmax(0,1fr)}}
+.lock{max-width:760px;margin:0 auto;text-align:center;background:var(--gray);border-radius:var(--r-lg);padding:40px 36px;display:flex;flex-direction:column;align-items:center;gap:12px}
+.lock h2{font-size:clamp(24px,3vw,32px);font-weight:800;letter-spacing:-.02em}
+.lock>p{color:var(--muted);max-width:56ch}
+.lock-ic{width:56px;height:56px;border-radius:50%;background:var(--ink);color:var(--white);display:grid;place-items:center}
+.lock-ic svg{width:26px;height:26px}
+.lock-form{width:100%;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;text-align:left;margin-top:14px}
+.lock-form label{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;color:var(--muted)}
+.lock-form .full{grid-column:1/-1}
+.lock-form input,.lock-form textarea{font:400 15px/1.4 var(--font);color:var(--text);background:var(--white);border:1px solid var(--line);border-radius:12px;padding:11px 14px;width:100%;resize:vertical}
+.lock-form input:focus,.lock-form textarea:focus{outline:2px solid var(--blue);outline-offset:1px;border-color:var(--blue)}
+.lock-form .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.lock-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+.lock-actions .btn[disabled]{opacity:.6;cursor:wait}
+.lock-status{font-size:14px;color:var(--text);margin:0}
+.lock-note{font-size:13px}
+@media (max-width:560px){.lock{padding:28px 18px}.lock-form{grid-template-columns:minmax(0,1fr)}}
 .course-toggle{margin-top:22px;gap:12px;height:48px;padding:0 24px}
 .course-toggle .ct-count{font-weight:600;opacity:.75;font-size:13px}
 .course-toggle .ct-arrow{transition:transform .25s}
@@ -360,52 +376,20 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
   <!-- KHỞI NGHIỆP -->
   <section class="sec" id="startup" data-spy>
     <div class="wrap">
-      <div class="sec-head">
+      <div class="lock">
+        <div class="lock-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2.5"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div>
         <p class="eyebrow">Dự án khởi nghiệp</p>
-        <h2>Gạch không nung từ mùn khoan, dưỡng hộ khoáng hóa CO<sub>2</sub></h2>
-        <p>Biến chất thải khoan dầu khí thành vật liệu xây dựng carbon thấp.</p>
-      </div>
-
-      <div class="venture-hero">
-        <div class="card">
-          <h3>Một viên gạch, hai bài toán môi trường</h3>
-          <p>Mỗi giếng khoan dầu khí thải ra một lượng lớn mùn khoan cần được thu gom và xử lý. Trong khi đó, ngành vật liệu xây dựng tiêu tốn nhiều năng lượng và phát thải nhiều CO<sub>2</sub>.</p>
-          <p>Dự án dùng mùn khoan đã qua xử lý làm nguyên liệu cho gạch không nung, rồi dưỡng hộ gạch trong môi trường giàu CO<sub>2</sub>. Khí CO<sub>2</sub> phản ứng với các hợp chất canxi, tạo thành canxi cacbonat bền vững. Nhờ vậy CO<sub>2</sub> được lưu giữ lâu dài trong viên gạch và gạch cứng nhanh hơn.</p>
-        </div>
-        <div class="card formula">
-          <p class="eyebrow">Phản ứng khoáng hóa</p>
-          <code>Ca(OH)<sub>2</sub> + CO<sub>2</sub><br>→ CaCO<sub>3</sub> + H<sub>2</sub>O</code>
-          <p>CO<sub>2</sub> được chuyển thành khoáng vật canxit ngay trong quá trình dưỡng hộ gạch.</p>
-        </div>
-      </div>
-
-      <div class="features">
-        <div class="card">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 19H4.8a1.8 1.8 0 0 1-1.6-2.7L7 9.5"/><path d="M11 19h8.2a1.8 1.8 0 0 0 1.6-2.7l-1.2-2"/><path d="M14 16l-3 3 3 3"/><path d="M8.3 13.6L7 9.5l-4.1 1.1"/><path d="M9.3 5.6l1.1-1.8a1.8 1.8 0 0 1 3.1 0l3.9 6.8"/><path d="M13.4 9.6l4.1 1.1 1.1-4.1"/></svg>
-          <h4>Tận dụng chất thải</h4>
-          <p>Biến mùn khoan từ ngành dầu khí thành nguyên liệu xây dựng, giảm lượng chất thải phải chôn lấp.</p>
-        </div>
-        <div class="card">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.7-9h1.8a4.5 4.5 0 1 1 0 9z"/><path d="M9 14l2 2 4-4"/></svg>
-          <h4>Lưu giữ CO<sub>2</sub></h4>
-          <p>CO<sub>2</sub> được khoáng hóa thành CaCO<sub>3</sub> và nằm lại lâu dài trong viên gạch.</p>
-        </div>
-        <div class="card">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c1 3 4 4.5 4 8.5a4 4 0 0 1-8 0C8 9 10 8 10 5"/><path d="M4 4l16 16"/></svg>
-          <h4>Không nung</h4>
-          <p>Không đốt lò như gạch đất sét nung, nên tiết kiệm năng lượng và không dùng đất nông nghiệp.</p>
-        </div>
-      </div>
-
-      <div class="card process">
-        <h4>Quy trình sản xuất</h4>
-        <ol>
-          <li><b>Xử lý mùn khoan</b><span>Thu gom, tách dầu, sấy và nghiền</span></li>
-          <li><b>Phối trộn</b><span>Mùn khoan, chất kết dính và cốt liệu</span></li>
-          <li><b>Ép tạo hình</b><span>Ép gạch theo khuôn</span></li>
-          <li><b>Dưỡng hộ CO<sub>2</sub></b><span>Trong buồng kín giàu CO<sub>2</sub></span></li>
-          <li><b>Kiểm tra chất lượng</b><span>Cường độ nén, độ hút nước theo TCVN 6477:2016 và độ an toàn môi trường</span></li>
-        </ol>
+        <h2>Nội dung chỉ dành cho người được cho phép</h2>
+        <p>Gửi yêu cầu bên dưới. Khi tác giả chấp nhận, bạn sẽ nhận email có đường link riêng để xem toàn bộ dự án.</p>
+        <form id="access-form" class="lock-form">
+          <label for="acc-name"><span>Họ và tên</span><input id="acc-name" name="name" required autocomplete="name"></label>
+          <label for="acc-email"><span>Email</span><input id="acc-email" name="email" type="email" required autocomplete="email"></label>
+          <label for="acc-org" class="full"><span>Đơn vị / tổ chức</span><input id="acc-org" name="org" autocomplete="organization"></label>
+          <label for="acc-reason" class="full"><span>Lý do muốn xem</span><textarea id="acc-reason" name="reason" rows="3" required></textarea></label>
+          <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="full lock-actions"><button type="submit" class="btn btn-dark">Gửi yêu cầu truy cập</button><p id="lock-status" class="lock-status" role="status" aria-live="polite"></p></div>
+        </form>
+        <p class="lock-note">Đã được chấp nhận? Mở đường link trong email là xem được ngay.</p>
       </div>
     </div>
   </section>
@@ -712,7 +696,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
             <div class="wire" aria-label="Sơ đồ bố cục trang">
               <div class="bar">Thanh menu cố định</div>
               <div>Giới thiệu · ảnh, mục tiêu, thông tin nổi bật</div>
-              <div>Khởi nghiệp · gạch không nung từ mùn khoan</div>
+              <div>Khởi nghiệp · xem khi được cấp quyền</div>
               <div>Kinh nghiệm · thực địa, nghiên cứu, hoạt động, kỹ năng</div>
               <div>Bài tập · danh sách và trạng thái</div>
               <div>Nghiên cứu · tóm tắt đề tài</div>
@@ -805,26 +789,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
     "Xem dự án khởi nghiệp":"View startup project",
     "Kỹ thuật Địa chất / Địa vật lý Dầu khí":"Geological Engineering / Petroleum Geophysics","Chuyên ngành":"Major","Niên khóa":"Academic years",
     "Vô địch PetroCup Đông Nam Á":"Champion, PetroCup Southeast Asia","Giải thưởng 2025":"2025 award","TP. Hồ Chí Minh":"Ho Chi Minh City","Nơi ở hiện tại":"Current location",
-    "Dự án khởi nghiệp":"Startup project",
-    "Gạch không nung từ mùn khoan, dưỡng hộ khoáng hóa CO<sub>2</sub>":"Unfired bricks from drill cuttings, cured by CO<sub>2</sub> mineralization",
-    "Biến chất thải khoan dầu khí thành vật liệu xây dựng carbon thấp.":"Turning oil and gas drilling waste into low-carbon building material.",
-    "Một viên gạch, hai bài toán môi trường":"One brick, two environmental problems",
-    "Mỗi giếng khoan dầu khí thải ra một lượng lớn mùn khoan cần được thu gom và xử lý. Trong khi đó, ngành vật liệu xây dựng tiêu tốn nhiều năng lượng và phát thải nhiều CO<sub>2</sub>.":"Every oil and gas well produces large volumes of drill cuttings that must be collected and treated. Meanwhile, the building materials industry uses a lot of energy and emits a lot of CO<sub>2</sub>.",
-    "Dự án dùng mùn khoan đã qua xử lý làm nguyên liệu cho gạch không nung, rồi dưỡng hộ gạch trong môi trường giàu CO<sub>2</sub>. Khí CO<sub>2</sub> phản ứng với các hợp chất canxi, tạo thành canxi cacbonat bền vững. Nhờ vậy CO<sub>2</sub> được lưu giữ lâu dài trong viên gạch và gạch cứng nhanh hơn.":"The project uses treated drill cuttings as raw material for unfired bricks, then cures the bricks in a CO<sub>2</sub>-rich environment. The CO<sub>2</sub> reacts with calcium compounds to form stable calcium carbonate, so the CO<sub>2</sub> stays locked in the brick and the brick hardens faster.",
-    "Phản ứng khoáng hóa":"Mineralization reaction",
-    "CO<sub>2</sub> được chuyển thành khoáng vật canxit ngay trong quá trình dưỡng hộ gạch.":"CO<sub>2</sub> is converted into the mineral calcite while the bricks cure.",
-    "Tận dụng chất thải":"Reuses waste",
-    "Biến mùn khoan từ ngành dầu khí thành nguyên liệu xây dựng, giảm lượng chất thải phải chôn lấp.":"Turns drill cuttings from the oil and gas industry into building material and reduces waste sent to landfill.",
-    "Lưu giữ CO<sub>2</sub>":"Stores CO<sub>2</sub>",
-    "CO<sub>2</sub> được khoáng hóa thành CaCO<sub>3</sub> và nằm lại lâu dài trong viên gạch.":"CO<sub>2</sub> is mineralized into CaCO<sub>3</sub> and stays in the brick for the long term.",
-    "Không nung":"No firing",
-    "Không đốt lò như gạch đất sét nung, nên tiết kiệm năng lượng và không dùng đất nông nghiệp.":"No kiln firing like clay bricks, so it saves energy and uses no farmland soil.",
-    "Quy trình sản xuất":"Production process",
-    "Xử lý mùn khoan":"Treat drill cuttings","Thu gom, tách dầu, sấy và nghiền":"Collect, remove oil, dry and grind",
-    "Phối trộn":"Mixing","Mùn khoan, chất kết dính và cốt liệu":"Cuttings, binder and aggregate",
-    "Ép tạo hình":"Pressing","Ép gạch theo khuôn":"Press bricks in molds",
-    "Dưỡng hộ CO<sub>2</sub>":"CO<sub>2</sub> curing","Trong buồng kín giàu CO<sub>2</sub>":"In a sealed CO<sub>2</sub>-rich chamber",
-    "Kiểm tra chất lượng":"Quality testing","Cường độ nén, độ hút nước theo TCVN 6477:2016 và độ an toàn môi trường":"Compressive strength and water absorption per TCVN 6477:2016, plus environmental safety",
+    "Dự án khởi nghiệp":"Startup project", 
     "Thực địa, nghiên cứu và hoạt động":"Fieldwork, research and activities",
     "Thực tập sinh địa chất thực địa":"Field Geologist Trainee",
     "Khảo sát địa chất khu vực Nam Bộ và Nam Trung Bộ":"Regional geological field trip, South and South-Central Vietnam",
@@ -920,7 +885,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
     "Website là một trang cuộn duy nhất, lấy cảm hứng từ các trang giới thiệu sản phẩm công nghệ: nền trắng, chữ đậm cỡ lớn, các khối xám nhạt bo góc tròn, nút bo tròn và nhiều khoảng trắng. Thanh menu cố định phía trên giúp chuyển nhanh giữa các mục. Phần đầu trang có hình trang trại điện gió ngoài khơi với cánh quạt quay chậm, gắn với hướng nghiên cứu của mình.":"The site is a single scrolling page inspired by tech product pages: white background, large bold type, light grey rounded blocks, pill buttons and plenty of white space. A fixed menu at the top jumps between sections, with a Vietnamese/English switch. The header shows an offshore wind farm with slowly turning blades, linked to my research.",
     "Thanh menu cố định":"Fixed menu bar",
     "Giới thiệu · ảnh, mục tiêu, thông tin nổi bật":"About · photo, objective, key facts",
-    "Khởi nghiệp · gạch không nung từ mùn khoan":"Startup · unfired bricks from drill cuttings",
+    "Khởi nghiệp · xem khi được cấp quyền":"Startup · visible once access is granted",
     "Kinh nghiệm · thực địa, nghiên cứu, hoạt động, kỹ năng":"Experience · fieldwork, research, activities, skills",
     "Bài tập · danh sách và trạng thái":"Assignments · list, status and posting dates",
     "Nghiên cứu · tóm tắt đề tài":"Research · project summary",
@@ -963,7 +928,8 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
     "Nguồn S và máy thu G cách nhau x trên mặt đất; mặt phản xạ nằm ngang ở độ sâu h, vận tốc lớp trên V.":"Source S and geophone G are a distance x apart at the surface; the horizontal reflector is at depth h, with velocity V above it.",
     "Lấy điểm ảnh S′ đối xứng với S qua mặt phản xạ, nằm dưới S ở độ sâu 2h. Đường tia S → A → G dài bằng đoạn thẳng S′G.":"Place the image point S′, the mirror of S in the reflector, at depth 2h below S. The ray path S → A → G has the same length as the straight line S′G.",
     "Quãng đường truyền: L = √(x² + (2h)²).":"Path length: L = √(x² + (2h)²).",
-    "Thời gian truyền: t = √(x² + 4h²) / V. Đây là một hyperbol; tại x = 0, t₀ = 2h/V.":"Travel time: t = √(x² + 4h²) / V, a hyperbola; at x = 0, t₀ = 2h/V."
+    "Thời gian truyền: t = √(x² + 4h²) / V. Đây là một hyperbol; tại x = 0, t₀ = 2h/V.":"Travel time: t = √(x² + 4h²) / V, a hyperbola; at x = 0, t₀ = 2h/V.",
+    "Nội dung chỉ dành cho người được cho phép":"Content visible to approved readers only","Gửi yêu cầu bên dưới. Khi tác giả chấp nhận, bạn sẽ nhận email có đường link riêng để xem toàn bộ dự án.":"Send a request below. Once the author approves it, you will receive an email with a personal link to the full project.","Họ và tên":"Full name","Đơn vị / tổ chức":"Organisation","Lý do muốn xem":"Why you would like to see it","Gửi yêu cầu truy cập":"Request access","Đã được chấp nhận? Mở đường link trong email là xem được ngay.":"Already approved? Open the link in your email to view it.","Đang gửi…":"Sending…","Đã gửi yêu cầu. Khi được chấp nhận, bạn sẽ nhận email có đường link để xem.":"Request sent. If it is approved, you will receive an email with a link to view the project.","Chưa gửi được. Vui lòng thử lại hoặc liên hệ tinhnd12@pvu.edu.vn.":"Could not send. Please try again or contact tinhnd12@pvu.edu.vn.","Đường link này không còn hiệu lực. Bạn có thể gửi yêu cầu mới bên dưới.":"This link is no longer valid. You can send a new request below."
   };
   var EN_ATTR={
     "Ảnh chân dung Nguyễn Duy Tính":"Portrait of Nguyễn Duy Tính","Mục lục":"Sections","Sơ đồ bố cục trang":"Page layout sketch",
@@ -1032,6 +998,61 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
   var saved=null;try{saved=localStorage.getItem('site-lang')}catch(e){}
   if(saved==='en')setLang('en');
   openForHash();
+
+  /* Khởi nghiệp: nội dung được mã hóa, chỉ mở bằng đường link tác giả gửi */
+  var SP={"iv": "ZCdP4ZjvIsM1T_w7", "ct": "UKLjnRnX9pjQRHkAaHnzXYiD5kJGPCVXUX2Q-sdF5UbSg6R0QC2ntnvP5kT_s-5tErSfIZ_1x7NF9m2aWzKmcbXZe5q6YS2kJeRozJSBBkhZpk-esc00WUEM19UNjRxHpxE67mTr1eDxmivBtztQG1pBr1BeDI7vSMRwnlR7cw0BV9iLw7elhpzb2YAVr22Q0RlaZ0nNnbDMHWBhWQMf0vDhbqIfeCKf_OqQ4Wk-emSWJd2xaunuqj5UGfeUkI2ml23WCdOHnNYGH_b8qGnw2Z5rj25CrWlbF-Z7n4wQUuonR_ecMdr4gDNXg10x85MgEAYSzgzM8N8NkLiZ47u0zkNritkNB0Y4K_eC4MGl8LBo3j9Rhptthc4oFEEmCthMSUuS7VXj92TL1YXYD8VoVU7R91OZoffjopymPkqoy3TEUmuHHBLA_CGTdRIfbi5oAjJItEJdMHUUIwkaty5nbgVeFF1qXwCi8zMQZi0dXiTnCad_pKPLsKDweN_mOFCu2h-jNYHT4rM0aTeVx4_iDz0q8oS5DRp0XyEvcIAsxGkDhUHSrw1LUlhbb2A1hAdZarxf1iC0VnONeQFowN8IZ6iDQ-klTNQXdt7_RQjwbGMx60i-5h3eW0-DIBM8yFe5pjTbILWrmKDj1LwtnPS1bxs4sYBl7zpj8VCzhGu7gPnCrrzHCnjviqJLlyIFcurWevLQ0ofD-Dp0FtiNSakKqUIl6m7hZsrwyuyUlE7czpQcLtzWp4LLOsQlXy_iAkP_slPPPLR_Az8AG-7qnMDLWCiNHFa47buq3gIjIL3bwVG1ebGHDEidnhsDB-LF_46TofZeSSsplcixgFKXvPJ-fUsI5lITcXpyHO73htMLrSYrICqiVbw_IEbmEh76ahoTxKNOQQBbd2X1Wr7IeEuaFtElpkgGYcY02GgkqqsJ9t6iIUvqN2FZNqrUEgO6tUOHGSj2kCc7O0tv_wZiKCA5jmPcvQzId0hjsbsPcKzi7fmuIJg2025DJ_i7fWY_sX-l1cbivCC4lrluDRYFE6DXLttsn2nGM2riGuWPvno4mMMgg9a0HVM1fRSylESZXA2F4vVki3MBSjU5fXItzstONu2Omt6SyufPSYSxyjTX-oeNgzjuXHwWosI1W3Jxw1hj0-U2cuB3Uejqn8fGNeGf-SRbbey13sbSRxEhkZkPGN1uyEXv0nD6P0Dr_15CHcI3aM41fQBQxTMDIon_-XT-mvsTmBn7RThTjKRRp1S7V3aYTMbs0utBov8E8LskT217bowyebwEUfcXdBzBxkrXD9qbVRLICE5z9fUjP4cNiC4U6Inntkn1qwjb6TiIdww-bksLZLs-lH8LPiNGSIYQL76yaTzTu_IaYssLtEqrAxNPRtMKFm3Y0LtX75lsXvCBhf2zQg17IiddDSPTTUqhlesVc1b-_JjiWeVE5yDlWcM13lJ9XiBsV8Ayu2sm7BwB9I6uO_W3mVUmv2mNMV2Fvn6cY7u7rBJWzmMzunC_G3X_Vuify7C4pNFg5ZAjDrOkO2AG9uCXxzSxZ_fESC-k_EKqjqwgzzlnOz2judbt--I2UKMQtMwc451mDN-y6LJNOl2tyZn5V8fMq4Z2q7MbGwLgO1RqTM8KRx55QSiKJmdwY91SW_0TGMTdZ_mUY_f_BRyUOpjTYcppYrWxblDrjH09sGh8NQDT8WPwapo3jcCzCLYRbFwE6LmDWCQAVukqKSeWx3aG_Rlv8hKOaRY9Ye_QbLMKgRdkWp0GVRhqI48LxJWncdZMCzWzeKCrBleNQYRnYD3WbNiA4Z-q2IUZhCWB5vLHynQpAwt8EKcw4wBmUz23RVrSTrghFrWPFL7PmjXXJPbUBdSdNtxu4XtF-bMpdDVOazQagVL4kPt8_DkonTJhZ2nklFCcLej6EU7FQpGPrga2Fo5xFkgEqdqfN_F5WxvOH3AnLh_E5ZzJBmW0X5iix9Wj9mVbiQERbaSJRBvHxricdisJvv7MujshU5XSh7vTavSs-SK23-oSQvk73BJXRKkRQfCcPzQKBKQwesprn2vB7xAgxQsfsXobKvQvxoBA3yOrb3wtFWUF9DxppbZ8i5HsWCeIYYEw1hhH06cwOr1vq0HsXftpJ8lX8zcdS82kb7PMLBEHF1HPP8A3qRYsWZjM20ZvtrFYGem13VqONSXEI8P7QDVs6RaYAawd6p7oeByx93ZKuju9pQdIgQgD3sT6xwLhFMx4QGu_JeF6KLuN6nJj_aWCUaDRI3QCcVowXOPzhtUT89pmZZBD6SY2vi5f9A9XPnw-ig8DWjpxBZf9NJcwWJWWRoazAg9TzO0Gy_bBpJMDJ0dVwBkcGkw5WKnhPNY60JWZshM1ZPvK3gTH0dxD1ea01WSjibUOI6rKNDwLB9GczP8V7hou6l0WnUnltb52qCNtuGKCw6ej496Soi0xm7U5KBxJWc2ByGV5VbcjSqhxu9RZ98x6r01XsBycTGFDcd1GRJvgfDOa0CoCMj1eNQutyVxOyeLbDtjN5gosrKa_OQ2RuZ9lzNs_k0C3m2suRRcNGoWmBFzkYDvmxI2-ERLESSAKSm_yNFZXOu4BxzIzaol_-E1WCh4QrYBEzy763reDZ-tJArb8JMTk2KXQb1uteqe3evpbRxA3n1ILa1yrxgGmZV4NH9jc0YEW09vXaCSsxtyyRX6sqCrYHNKlXBdrabzRP-mfIU4V8tGoyl8OPfN5o57AMAsSP53TGw41lu-POZD5VTFe_1gxOIHBJsLkw7DVcNgxWqXa-Ci5vJ8ZSP4A_0E4_ErGNZVEEiwzi9oiJhwDag2JsP6DhCVxKVUUIUZIMJr6a0uNJyaIFZsud-No2M4hQ36tgtmRuXDwKhXnGYb8Orb5WK00pkGOL4aPMnRnwqoOuZvQMLaoA81hJl0-KFkK3ShnhsgIhh-aAWaDiSSDVBCNPr6CCJXb_FQE3fM8Wyf-FpjyX5jh5ngvJnvP22FmDqVnWqaH6lm5tPFiFxgsVfLBpuyXFU0R95Q0gSU1J7jo_f4pgagmaJAb_SvqYx_Z-7ap6tIoweffjLKCtCIZ3vOK6C4q7eDDXC1r_igueuPu5VM6CLVmdc8_jMxLevoEo4SkEtKrh60Lx5EBUqpsYHBv66TTj4s6hePyTZzclJsseaxwCX2lkOeJ8pITTjTaEZAiuV0-sOdgMH2SFMG6Fu9avS8KlXTtvhXQ0dCGjMPj00cigaaKylIYfNj88xUrgvtMUcobib8LTzDF9wIVHsR9HAHWTmUb-lHQjyOS-fn3jzXYY-oSVxMAuj6tkI3obhzCikc9zhGe9Ouh07DcKsy3TblyAATUVUCcOPCu_HIG_N-1JT8kPxsHJTFoyx_peOb_1L4YtBCXVLYFy7XeUDhWNQ7ru0Uj-Fv1KralzlIkSybvyCxRKttGXzu82ClT30v-namZAf574sRQxG-LbFoQJe-yshJfVXm5GLzsjF40FcPxWcCEQO9dmdfbEMhrshlrfbjVWV8arXUDu03jyODPl-FNu3HFZ5xdtuwR57gE5-VV6CKE57raWJlEGkEsZaFtobPHtkfJFHsNZ1CQv_i1c9k-mSsSacV-Q6reTWdF43OfCpPpYwprueHKZZ8nikvaMacnJDqiuVNPBLxBLOi-HdzdiOEG0rreqQwACEWdeYHxlnp9k8tD9tSJ_-dCwdLK5AD3hnPk8c5RJor0Cc_FZSviitdfNqN4d154qTtCaJr_oHV25XGORiUhUIJvnoa2wtmZn7oFXV993PBzfPLICs33eKjU57q7s8SNMjFDi5zwuX6_fcf44my0ihSY229GkpxjadO1H1uEEluQfYEaOkqCf-GTlg4SnhfQD1C1P_gU1yueRLOG5gq4VWDDVvtmYxvPo3P6vohako02kPS6kolBke-4PrWUAgM_i-k-1xBDtx5MWwPAxqvjmIjyWSx1oGkcRUwf5eZ6yP4ukry9jYV97Kl9cZ9esXqSZZdFFm-N8pgkrGsFJIXl8KGWIPcUMZf0hFiL-Eb167akbT9HDSpus0ToAGN-OX2FBQoKh1l-BVvaHfv9GlkK5beXss_tenvlFmMKZj3IpbGmkWjITTbyMBIHjtchxHsEYoHdnhbkm94dhfFvUhMgDw2yBEWHpegrBOj6P1iPE0Oe1oydpDwbL567VksvIqnRlDtzwGhL3jbrXD0k5fcGWG4tOBApoKeDm38Iio22w5JhbyIDtU0D3exiTMIJKkSx7T6Vcg3xk0vM3L9RUj1sg7LTPm7IHNC19omdxxUVon4ON04zE8QyCwm5l39RwEhRl6sXKH-4yg1COGmTcM-7mdLU9XLP8A9Ry8FmP5iO3RNQxZLWVa88IceZudpFn8InBEGa0XiwsNYWd2RK5Zwm6___R586RhbDbpFyH_w-otP9Xh8h9LGkfyHwrKyiYUDIBa1Oj4x3AdVxg5aKaFYkKGWdE7TKrnSfZQ42k_JDp9UX0uooeA6Husl6u3BXIejq-UJcbad6SV1mHRhT6YgZpegl6NnfcEwTLNed-f7drc1ZpsrOEb3B7QvUe0RJgTHgCbgpA3wOPCxNr098da2oGJV5-p-ylM268UxuR0RU_aQBdWFZp0QQzAL4jxYlsgnb2owaRpemCeFVju_QnP_oRdd0JdMj3IFOUgtR3H4MmigH_GM749C3VtXU4MFXm5zFjxGvk8IVZF5gQ8yiMY97taXmdPe2PSCWmsESMUli01fbnSuupNxMwIeG6-VweYOk9ImP6rCmvsMXJz5pz68Nlc9nSnsz3NGv5HjCO45S3rPuRFmWCI3xA785LiDhd0n5sdtZ0h4JMMIcxvJ_uNhJJrb-YPTvE_lRXTjH1ToXdCOgjr2riikyS2X4dUK1UAjO_NTcapBBXupkmbzXWCjOhwAGdkHhhonMxTBXpjvDvE8a1p4_8wDjKbyKvtC8_Orlc_ZE7yc92XMe1uJJKS_Ky5t9FI503vIiop7wxzKQOM1zEWDT5GxtrMzleYaH-peRfDT5ckOnXmVQt3X0fOcBn8FOnISG3hWxHQyDwQZ6vBMWApgtowzOAcTjQBu23D4ggMJtUn19PDZCJEMc5MopFF4dCi_G-sIs_ycT_rQ2lSVLlppQd7JO08bn4w_cj6vDsa2SKA2oacW5NTtk7EqowabFGxV4W-90GoeNkUtar_Qo1DOhzhhj3W1_zjf0jqXjX8CVRzMzDPy4EECNgXQ_bkyFSAlhmktzINAiKRfCTpv--jBntD0jZY-NJwKz73rsXrS_dBEpD-YfAoFuFcUQzbpeNaCO4yhwD8pSTAPhTzGwLqI9_2-UADZJmxras1iMK15DEQhsTDvkJD17dglsPn7ChRLwfWbWOzPzCAEdpJZph9cosUV-Mdkehaq0dlmNjcW3HTkDIXAY3aMjmcklpDbbUH6Flvyd8-BqvxgPGzfUyLpKgwdIXomvT6icme3OBRJY10I4Jq_6YiKwvFV06PsASrQZUFwg3tgZaFI2Errc-R_K2AsqHtARTstUGAGsSObfR39VAjGJ97OueJx1mFsr8zfFwPztuU-V6vN9uUTVqwzc8yg9W6Q9o2S6Tp4KCLPKPbX9rQio4ZNj_S9akUf0Zpa4LAvwIGOHx45dl26ZC-2A2UgMllwSaZplBygQgiLj-mEMFxxIV8jZGPHO5Sq0wMQkcWk_8X_znK5T8crt7XlugN-TOOmtZuq93oJBF6TyuVyaEmquSq621AvCG0xcaKSEEWXLEmUROFrFXElSBb4ACu9R8W3aUlYjZbVGEBhe_2MqURn7oLYZvoSRxeUciKcLgO0VRMsCeJa-aiPtpu-1dpw5PL0MimZs4JoGpyqE94fF2uWZUsBiLt33NEDXD4iJIf-gK1MCItNfUof6M4f1ZxBmmma_wjT3bB07FNoNKMO9CTp1HSzHwa0tN1ubJ8ODCIIFzZCU9Iy6oHxSgXdhNsp4dFX3DFZot0FIxCVA3SOJInCUAYAT_lmINsWMwNUmCXbDa4xfqmHKPV8bf9cdAerNGmwwv4FQQ-LGzFeS_Hn0rv5THW8cRHw58mMYMazGS7wnvvhe7JCL1n56Q31hgfnQ_QsAQG8FKSg6VgnFyh5lZpC4-aMhcyOUi3vvW6epjqfx_reVYxhnef_JONH_5H3wgAnM4LEetz-sT2WpeyxgsswgJ43uftb78QVWF_6N_k82_4QIByF8FmjnHA7_0gQPCObdrY98kcyCXOpLRvmYUeLYveBd4rB2_HOOxX-ojBrnn2VwWEoOW7ZIcDCdFApo6eIHDkZ2NW8ssI_Cx0imnD5Tp0_sk8DCc6r7pfFDOSMmUYu-lTPFFR9KIJadBCtO494VZoAcsRdUwOGcgCeUXJrTr8gEqGKW78VBPB3evhqJtuILatu6FTdSSaCZ0r32x57I8W0ADzzyHFrssqpq-ROhVdg9A16LR0qm6nkdAVKw7Jod_f21oMWOfXNG98czTZ_VpGPmzxw-IfkpI6pYEITrxY7eMxg4PHrwpzRfFk-ffVvcc0F0eURNFwxyEYKnpyFIa_tGyTwRxc5N_CAvztnuBKkUBE5XCwB-FZZcUlfagogOE18bbpB955PN8rlrLGIhmv8RTKsUsjlxsAKtYDl4evdw-RdIxuDtuTIxV6i_xCm5_B-7GEgVWMmQdyWCdbF4B0pNIDNFgQx-O39ukA5zs4HTl774O_DoWlsdOPLADBSJiyBEPKqD6gHb8RFzrD-k0Lvipxm3sn8O8wjePYeOvAnRxwqsqKmb2SnvE7xrkGDpAUkYTikLLSN81UScAvYtgqGt8BAuCVDGrnRaOvUAJx6rVOI39CJRN0xZWSrrwTQVp9EBFlEwHq3vqxOj9_fEnioD8_oq4mnebKl6oXvuqTxrK_hYIHENOlywNTxn6lFK2CK4pf9S6G6b2berSe5Ag2008uWthOZdeguYNMXSkFwpLxSVxnEQ5t8S1Fv8ELnEOaXuHJW3f5LlSEtmutXrWeUx9xWn7cWFTCMjrdhbTo2mxwVEu8NonIhf53Fr4eiH6gO1pLCd1wl4Z14924-d859egUUriNbsIa_mm28nYOOFZIUllXR5GgqSLUt7uhXVVFIcI2vHm1YF7Cgh1EN-LjcN6v25glWdwOgVNvEfUwPTKTbi2dNBBb5k3JOTXMh3e8NIBvu61z_fEZDG2u4Hqwdx5rdeYqHImLN2vXgtQV3-DcL5LvALdJT75ctpjIp8sgkEW5o3cWR6YACHFMJrGxdjt-AGLomZfHNPBywj0npvGf2GfGaesj8gCRCG7u41PiOBY3KEOg2ws5vBhphwbQVSFASLKT9XHno0AX4wD0KHYWMkGaNjdD-3rNToalf50O4uvIjHa9XAiF7Y8jyPqDahuRcV4yVsHunBmVX8I-ZtA5MuDcyk8ImMiIh-c5yDDSOeX_4S8jCPS5tB1hEcvpoDf8Kh1nQaJ6yKk6yaJpgHVwgSOgm47uKj0YfeN16-NLbMkei7Cqx6_5EO4TODxglsddqPF3ou5IJy1E0i2tpHqEtYx0KmTAiVHEd7-oVcWx2f8aFjy-VYmR7Mh5OTt-bsbX2riN-TjWAIKySyprsGfqHPliS5IEnwVTl6Hb5cN5N44ACgWQFtNJ1caU2Z98hhV7mBICX5i-FudICuE3a4M6Fzgbzh5hHKJf_kKeh5j5RgQacxe2fLUzX1PeCDuhNeMCg_sBGPQFED7__0wNgo1gQoIszZ5pZJseX7N3kQbcSekwbX5gbnOU2uLJkxmPNhtpaCsA4WSPxpuTTbNaNTwgCbEuvZ9GETMX8KZMNvJFlaCvIETS7HEOtBOAdv78AWjqEWUm2xfDauQ-F6usDWARewXCi67M98s9AKgjPm7506Gdw3KlOYHwWso7vEkLtaabSMZ8jxcF5ZuB-8VJS2dVtYYbkxZgKPBNHg-2Bu4fYgu3QF-zA9SDS4yRFPXUgND0MjHVUZUKaQPYhKd6T9T1t59pIwQ3j_WlR3zZQldYlzxow6D8Np5RcbOwRrswTgxdV3m7UJh3XtivkdGcQtXVFwZSpEK6wrLObg6gyKBkX3smq1zo8JVB0B9m-dzF5ziDNSatEGjoJI37U0_QMn7Kr4uGHrYB-wpOnA7n-lT3LTn9a56mj3tXgsLmtrxVmRY8jLLKii81g_UPIWdk1KAOOAy815gxSp062A4xx97dbTslZPV9ogblSj-uBa924RIavoUIUlFMG6LMcamJDFR-nsefqJ98hcde8UES7byoxzCCDrq_x9TeUWiyBwmjkcxf9aZS92HSwcwvmOa3zR7ELM4dOkasWYXVMEN_slpTwS0zs1lX-jD-ijNsDDj3ln3jz9MSVRTOXL4zdvrQaZzzpGbwM7AoAxFDLfiIBs35KHlK4cYksKU4d9wUnBfF3tiCoKS6EsWCpfLlMnbQfgJKVD9IYdW-stZnfXSAn67Ppn68QTa3YhG5EYk3AEuQ3ehddm2v_Eqd6yhI2EKpcgDt_pJ3kBh5WmSn3Jzc4tjISBr4f_LfEUBvAMmzvahVaaz1llKoHu0wTDCA90oiKe3FS-OAjqQ4m6KYJIUewI0p06O7RfMuoaDGeMWH8VUxi8ntUrY_qf2vpgH9RShqO2ijr6FphwYyG-03NhJge-APYBUqqr0FwbbugmgoN37AeyNeBVon5neD19Ht1iSF5dxUixHK2VHA871QlyBYx2apkxt4hVM-p573rFvfJH5I81m-1zrw8VJV7aPDuEAeAbsFr0NQSoSZSjJ1IC2-Bjz1guyJfuFDhqSlodtt7vRjM_jDteCuuGVN6AZiLxWLRTd5yYaIt7XNP8dX9-T58XV2FG1dS5iXimnr9zzXKuxPOBsFfGlzWOB4JzuINtzZB2N62VKGLF8Cm7pUJOWeRDRKmbBLzY4w5FH4513m1d1rvhwt0xtRK2XiozDf1IPtJeFH9VwUXadkSkSHIOALlMza7BtrQkE5WOeytRngMcKRU0pZ-uMFrb0GgOZEaMTQcPOMBudvvidrop8tOP2ltxRa8jAGGXsmiY_ekDb8wDz8WFeHIST01alcprTeYogylVyD2pIW8uI36z5JhAT04zxbvRdx8eGqu0Wj1FBUFjOIYQKBAb32MZ59S3SHhUrsW3D6rcD4SLlQGbrgNuUPwuH29kRGgyfj8AqkDRZ732Z7-dYAnfANvMv8cS92BR1y7MvoFd5_Z8PcIm8Z9hkpqAheaPu0_5jX9CBQ_0y0pTTUReM0hqNBA40G82KyeXIA1diykCwpGE7K1OCaTNUpCPY5BJKVQ0_xedKvpd5kF82__Tb_pvM8wtv8VSTiwISI2H4_wSdlrV-XLC4_4Dh8tqa1LN0tw00LcZeMR1eQp-tKsxiJKptTqVotP8DrYx9keEAojorC9QuTmA7RN19erpUbaIj6pM6DBZzOaZ95sw24PLwsMp_7cSPntmd0Cmmpon"};
+  function b64u(s){s=s.replace(/-/g,'+').replace(/_/g,'/');while(s.length%4)s+='=';var b=atob(s),a=new Uint8Array(b.length);for(var i=0;i<b.length;i++)a[i]=b.charCodeAt(i);return a}
+  function lockMsg(t){var st=document.getElementById('lock-status');if(st)st.textContent=tr(t)}
+  function unlockStartup(k,fromLink){
+    if(!SP||!window.crypto||!crypto.subtle)return Promise.resolve(false);
+    return crypto.subtle.importKey('raw',b64u(k),'AES-GCM',false,['decrypt'])
+      .then(function(key){return crypto.subtle.decrypt({name:'AES-GCM',iv:b64u(SP.iv)},key,b64u(SP.ct))})
+      .then(function(buf){
+        var d=JSON.parse(new TextDecoder().decode(buf)), cur=lang;
+        if(nodes)setLang('vi');
+        document.querySelector('#startup .wrap').innerHTML=d.vi;
+        Object.keys(d.en).forEach(function(x){EN[x]=d.en[x]});
+        nodes=null;setLang(cur);
+        try{localStorage.setItem('startup-key',k)}catch(e){}
+        return true;
+      })
+      .catch(function(){
+        try{localStorage.removeItem('startup-key')}catch(e){}
+        if(fromLink)lockMsg('Đường link này không còn hiệu lực. Bạn có thể gửi yêu cầu mới bên dưới.');
+        return false;
+      });
+  }
+  function keyFromHash(){var m=location.hash.match(/access=([A-Za-z0-9_-]{20,})/);return m?m[1]:null}
+  function handleAccess(){
+    var k=keyFromHash(),fromLink=!!k;
+    if(!k){try{k=localStorage.getItem('startup-key')}catch(e){}}
+    if(!k)return;
+    if(fromLink)history.replaceState(null,'',location.pathname+location.search+'#startup');
+    unlockStartup(k,fromLink).then(function(ok){
+      var s=document.getElementById('startup');
+      if(ok&&fromLink&&s)s.scrollIntoView();
+    });
+  }
+  handleAccess();
+  window.addEventListener('hashchange',function(){if(keyFromHash())handleAccess()});
+  var af=document.getElementById('access-form');
+  if(af)af.addEventListener('submit',function(e){
+    e.preventDefault();
+    var f=af.elements,btn=af.querySelector('button[type="submit"]');
+    if(f._honey.value)return;
+    btn.disabled=true;lockMsg('Đang gửi…');
+    fetch('https://formsubmit.co/ajax/tinhnd12@pvu.edu.vn',{method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({_subject:'Yêu cầu xem dự án khởi nghiệp – '+f.name.value,_template:'table',
+        'Họ và tên':f.name.value,email:f.email.value,'Đơn vị':f.org.value,'Lý do':f.reason.value,'Gửi từ':location.origin})})
+      .then(function(r){return r.json()})
+      .then(function(j){
+        if(String(j.success)!=='true')throw j;
+        lockMsg('Đã gửi yêu cầu. Khi được chấp nhận, bạn sẽ nhận email có đường link để xem.');af.reset();
+      })
+      .catch(function(){lockMsg('Chưa gửi được. Vui lòng thử lại hoặc liên hệ tinhnd12@pvu.edu.vn.')})
+      .then(function(){btn.disabled=false});
+  });
   var links=[].slice.call(document.querySelectorAll('.nav a'));
   if('IntersectionObserver' in window){
     var io=new IntersectionObserver(function(es){
