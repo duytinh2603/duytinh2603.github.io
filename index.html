@@ -170,8 +170,23 @@ dialog.cert::backdrop{background:rgba(10,18,32,.62)}
 .lang button:hover{color:var(--ink)}
 .lang button[aria-pressed="true"]{background:var(--ink);color:var(--white)}
 @media (max-width:820px){.top .wrap{gap:10px}.nav{flex:1 1 auto}}
-.asg{grid-template-columns:repeat(3,minmax(0,1fr))}
-@media (max-width:1024px){.asg{grid-template-columns:minmax(0,1fr)}}
+.asg{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:820px){.asg{grid-template-columns:minmax(0,1fr)}}
+.course-toggle{margin-top:22px;gap:12px;height:48px;padding:0 24px}
+.course-toggle .ct-count{font-weight:600;opacity:.75;font-size:13px}
+.course-toggle .ct-arrow{transition:transform .25s}
+.course-toggle[aria-expanded="true"] .ct-arrow{transform:rotate(180deg)}
+.course-body{animation:cb-in .3s ease}
+@keyframes cb-in{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.course-body{animation:none}}
+.quiz{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;align-items:start}
+.quiz-img{margin:0;border-radius:var(--r-md);overflow:hidden;box-shadow:0 12px 40px -18px rgba(0,0,0,.3);background:var(--white)}
+.quiz-img img{display:block;width:100%;height:auto}
+.quiz-text{display:flex;flex-direction:column;gap:12px}
+.quiz-text .label-sm{font-size:13px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.06em}
+.quiz-text blockquote{margin:0;padding:14px 18px;background:var(--white);border-radius:14px;font-style:italic;color:var(--text)}
+.quiz-text ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px}
+@media (max-width:820px){.quiz{grid-template-columns:minmax(0,1fr)}}
 .deck-toc{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 24px;font-size:14px;color:var(--muted)}
 .deck-toc li{display:flex;flex-direction:column;gap:2px}
 .deck-toc b{color:var(--ink);font-size:13px;font-variant-numeric:tabular-nums}
@@ -262,7 +277,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
       <a href="#about" data-sec="about">Giới thiệu</a>
       <a href="#startup" data-sec="startup">Khởi nghiệp</a>
       <a href="#experience" data-sec="experience">Kinh nghiệm</a>
-      <a href="#assignments" data-sec="assignments">Bài tập</a>
+      <a href="#assignments" data-sec="assignments">Địa Vật Lý Ứng Dụng</a>
       <a href="#research" data-sec="research">Nghiên cứu</a>
       <a href="#methodology" data-sec="methodology">Phương pháp</a>
       <a href="#contact" data-sec="contact">Liên hệ</a>
@@ -458,10 +473,12 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
   <section class="sec" id="assignments" data-spy>
     <div class="wrap">
       <div class="sec-head">
-        <p class="eyebrow">Địa Vật Lý Ứng Dụng · HK 9–12/2026</p>
-        <h2>Bài tập</h2>
-        <p>Lời giải các bài tập môn Địa Vật Lý Ứng Dụng (Applied Geophysics) do TS. Phạm Huy Giao giảng dạy. Các bài mới sẽ được cập nhật tại đây.</p>
+        <p class="eyebrow">Môn học · HK 9–12/2026</p>
+        <h2>Địa Vật Lý Ứng Dụng</h2>
+        <p>Applied Geophysics – TS. Phạm Huy Giao. Lời giải các bài tập, bài kiểm tra và bài thuyết trình của môn học. Các bài mới sẽ được cập nhật tại đây.</p>
+        <button type="button" class="btn btn-dark course-toggle" id="course-toggle" aria-expanded="false" aria-controls="course-body"><span class="ct-label">Xem các bài tập</span><span class="ct-count">5 bài</span><span class="ct-arrow" aria-hidden="true">▾</span></button>
       </div>
+      <div class="course-body" id="course-body" hidden>
       <div class="asg">
         <article class="card">
           <span class="no">Bài tập 01 · Hạn nộp 01/10/2026</span>
@@ -484,7 +501,20 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
           <p>Xác định mặt ranh giới không lý tưởng giữa hai lớp đá: định nghĩa thời gian trễ, tách thời gian trễ bằng bắn thuận – nghịch, tính tốc độ ranh giới V<sub>2</sub>, đổi thời gian trễ ra độ sâu và ví dụ tính toán.</p>
           <div class="row"><span class="pill done">Hoàn thành</span><a class="btn btn-dark btn-sm" href="#bai-tap-03">Xem bài ngay</a></div>
         </article>
-      </div>
+        <article class="card">
+          <span class="no">Quiz 02 · Kiểm tra trên lớp</span>
+          <span class="posted"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span>Đăng ngày 17/10/2026</span></span>
+          <h3>Phương trình thời gian – khoảng cách của sóng phản xạ</h3>
+          <p>Thiết lập phương trình thời gian – khoảng cách cho sóng phản xạ từ một mặt ranh giới nằm ngang, dùng phương pháp điểm ảnh (image point). Bài làm tay, nộp lúc 9h20, là một phần của bài kiểm tra giữa kỳ.</p>
+          <div class="row"><span class="pill done">Đã nộp</span><a class="btn btn-dark btn-sm" href="#quiz-02">Xem bài làm</a></div>
+        </article>
+        <article class="card">
+          <span class="no">Bài tập 04 · Bài thuyết trình 29 slide</span>
+          <span class="posted"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span>Đăng ngày 28/10/2026</span></span>
+          <h3>Máy đo điện trở suất ABEM Terrameter SAS 1000/4000</h3>
+          <p>Giới thiệu thiết bị tại phòng thí nghiệm PVU: nguyên lý đo bốn cực, thông số kỹ thuật, thao tác máy, hệ cực và hệ số K, các chế độ đo RES, IP, SP, quy trình đo sâu điện và ảnh điện 2D, xử lý số liệu, an toàn, kèm bài tập so sánh với địa chấn khúc xạ.</p>
+          <div class="row"><span class="pill done">Hoàn thành</span><a class="btn btn-dark btn-sm" href="#bai-tap-04">Xem slide ngay</a></div>
+        </article>      </div>
 
       <div class="card deck" id="bai-tap-02">
         <div class="deck-head">
@@ -536,6 +566,60 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
           <li><b>Mục 7</b><span>Giả thiết và hạn chế của phương pháp</span></li>
           <li><b>Mục 8</b><span>Ví dụ tính toán: δ<sub>G</sub> = 10 ms, z<sub>G</sub> ≈ 5,2 m</span></li>
         </ul>
+      </div>
+
+      <div class="card deck" id="bai-tap-04">
+        <div class="deck-head">
+          <div>
+            <p class="eyebrow">Bài tập 04 · Xem trực tiếp</p>
+            <h3>Máy đo điện trở suất ABEM Terrameter SAS tại phòng thí nghiệm PVU</h3>
+            <p>Sinh viên thực hiện: Nguyễn Duy Tính · Giảng viên: TS. Phạm Huy Giao</p>
+            <p class="meta-date"><span class="posted"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span>Đăng ngày 28/10/2026</span></span></p>
+          </div>
+          <div class="deck-actions">
+            <a class="btn btn-dark btn-sm" href="https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fduytinh11471-lab.github.io%2FAPPGEO-ABEM-Terrameter.pptx" target="_blank" rel="noopener">Mở toàn màn hình</a>
+            <a class="btn btn-line btn-sm" href="APPGEO-ABEM-Terrameter.pptx" download>Tải file PowerPoint</a>
+          </div>
+        </div>
+        <div class="deck-frame">
+          <iframe src="https://view.officeapps.live.com/op/embed.aspx?src=https%3A%2F%2Fduytinh11471-lab.github.io%2FAPPGEO-ABEM-Terrameter.pptx" title="Bài thuyết trình Máy đo điện trở suất ABEM Terrameter" loading="lazy" allowfullscreen></iframe>
+        </div>
+        <ul class="deck-toc">
+          <li><b>Slide 1–4</b><span>Cơ sở phương pháp điện trở suất, nguyên lý đo bốn cực</span></li>
+          <li><b>Slide 5–9</b><span>Thông số máy, bảng điều khiển, thao tác và phụ kiện</span></li>
+          <li><b>Slide 10–14</b><span>Hệ cực và hệ số K; chế độ đo RES, IP, SP</span></li>
+          <li><b>Slide 15–17</b><span>Quy trình đo sâu điện (VES) và ảnh điện 2D</span></li>
+          <li><b>Slide 18–22</b><span>Xử lý số liệu, sai số, an toàn, ứng dụng</span></li>
+          <li><b>Slide 23–29</b><span>Bài tập độ sâu đá gốc: so sánh khúc xạ và đo sâu điện, kết luận</span></li>
+        </ul>
+      </div>
+      <div class="card deck" id="quiz-02">
+        <div class="deck-head">
+          <div>
+            <p class="eyebrow">Quiz 02 · Bài làm trên lớp</p>
+            <h3>Phương trình thời gian – khoảng cách cho môi trường một mặt ranh giới</h3>
+            <p>Sinh viên thực hiện: Nguyễn Duy Tính · Giảng viên: TS. Phạm Huy Giao</p>
+            <p class="meta-date"><span class="posted"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span>Đăng ngày 17/10/2026</span></span></p>
+          </div>
+          <div class="deck-actions">
+            <a class="btn btn-line btn-sm" href="Quiz02-Reflection-Time-Distance.jpg" target="_blank" rel="noopener">Mở ảnh gốc</a>
+          </div>
+        </div>
+        <div class="quiz">
+          <figure class="quiz-img"><img src="Quiz02-Reflection-Time-Distance.jpg" alt="Bài làm tay: sơ đồ tia phản xạ S–A–G, điểm ảnh S' ở độ sâu 2h và phương trình t = √(x² + (2h)²)/V" width="1100" height="1466" loading="lazy"></figure>
+          <div class="quiz-text">
+            <p class="label-sm">Đề bài</p>
+            <blockquote>In class quiz no. 2: derive a time–distance equation for one interface medium, seismic reflection. 9h20 fix submitted. This is part of the MS exam. No AI assistance.</blockquote>
+            <p class="label-sm">Tóm tắt lời giải</p>
+            <ol>
+              <li><span>Nguồn S và máy thu G cách nhau x trên mặt đất; mặt phản xạ nằm ngang ở độ sâu h, vận tốc lớp trên V.</span></li>
+              <li><span>Lấy điểm ảnh S′ đối xứng với S qua mặt phản xạ, nằm dưới S ở độ sâu 2h. Đường tia S → A → G dài bằng đoạn thẳng S′G.</span></li>
+              <li><span>Quãng đường truyền: L = √(x² + (2h)²).</span></li>
+              <li><span>Thời gian truyền: t = √(x² + 4h²) / V. Đây là một hyperbol; tại x = 0, t₀ = 2h/V.</span></li>
+            </ol>
+          </div>
+        </div>
+      </div>
       </div>
     </div>
   </section>
@@ -855,15 +939,55 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
     "Đã sao chép":"Copied","Đã chọn, nhấn Ctrl+C":"Selected, press Ctrl+C",
     "Xem bằng chứng nhận":"View certificate","Bằng chứng nhận PetroCup 2025":"PetroCup 2025 certificate",
     "PetroCup World Student Olympics 2025 · South Asia League · Gold Certificate · Đội Proterozoic, Trường Đại học Dầu khí Việt Nam · 4–5/11/2025":"PetroCup World Student Olympics 2025 · South Asia League · Gold Certificate · Team Proterozoic, PetroVietnam University · 4–5 Nov 2025",
-    "Mở bản PDF":"Open PDF","Đóng":"Close"
+    "Mở bản PDF":"Open PDF","Đóng":"Close",
+    "Địa Vật Lý Ứng Dụng":"Applied Geophysics","Môn học · HK 9–12/2026":"Course · Sep–Dec 2026",
+    "Applied Geophysics – TS. Phạm Huy Giao. Lời giải các bài tập, bài kiểm tra và bài thuyết trình của môn học. Các bài mới sẽ được cập nhật tại đây.":"Taught by Dr. Pham Huy Giao. Solutions to assignments, quizzes and presentations for the course. New work is added here. The files themselves are in Vietnamese.",
+    "Xem các bài tập":"Show assignments","Ẩn các bài tập":"Hide assignments","5 bài":"5 items",
+    "Quiz 02 · Kiểm tra trên lớp":"Quiz 02 · In-class test","Đăng ngày 17/10/2026":"Posted 17 Oct 2026",
+    "Phương trình thời gian – khoảng cách của sóng phản xạ":"Time–distance equation for a reflection",
+    "Thiết lập phương trình thời gian – khoảng cách cho sóng phản xạ từ một mặt ranh giới nằm ngang, dùng phương pháp điểm ảnh (image point). Bài làm tay, nộp lúc 9h20, là một phần của bài kiểm tra giữa kỳ.":"Deriving the time–distance equation for a reflection from one horizontal interface using the image-point method. Handwritten, submitted at 9:20, part of the mid-semester exam.",
+    "Xem bài làm":"View my answer","Quiz 02 · Bài làm trên lớp":"Quiz 02 · In-class answer",
+    "Phương trình thời gian – khoảng cách cho môi trường một mặt ranh giới":"Time–distance equation for a one-interface medium",
+    "Bài tập 04 · Bài thuyết trình 29 slide":"Assignment 04 · 29-slide presentation","Đăng ngày 28/10/2026":"Posted 28 Oct 2026",
+    "Máy đo điện trở suất ABEM Terrameter SAS 1000/4000":"The ABEM Terrameter SAS 1000/4000 resistivity meter",
+    "Giới thiệu thiết bị tại phòng thí nghiệm PVU: nguyên lý đo bốn cực, thông số kỹ thuật, thao tác máy, hệ cực và hệ số K, các chế độ đo RES, IP, SP, quy trình đo sâu điện và ảnh điện 2D, xử lý số liệu, an toàn, kèm bài tập so sánh với địa chấn khúc xạ.":"The instrument in the PVU laboratory: four-electrode principle, specifications, operation, arrays and geometric factor K, RES/IP/SP modes, VES and 2D imaging procedures, data processing and safety, plus an exercise comparing it with seismic refraction.",
+    "Bài tập 04 · Xem trực tiếp":"Assignment 04 · View online (in Vietnamese)",
+    "Máy đo điện trở suất ABEM Terrameter SAS tại phòng thí nghiệm PVU":"The ABEM Terrameter SAS resistivity meter in the PVU laboratory",
+    "Cơ sở phương pháp điện trở suất, nguyên lý đo bốn cực":"Resistivity basics and the four-electrode principle",
+    "Thông số máy, bảng điều khiển, thao tác và phụ kiện":"Specifications, control panel, operation and accessories",
+    "Hệ cực và hệ số K; chế độ đo RES, IP, SP":"Arrays and factor K; RES, IP and SP modes",
+    "Quy trình đo sâu điện (VES) và ảnh điện 2D":"VES and 2D electrical imaging procedures",
+    "Xử lý số liệu, sai số, an toàn, ứng dụng":"Data processing, errors, safety and applications",
+    "Bài tập độ sâu đá gốc: so sánh khúc xạ và đo sâu điện, kết luận":"Depth-to-bedrock exercise: refraction vs. resistivity sounding, conclusions",
+    "Mở ảnh gốc":"Open full image","Đề bài":"Question","Tóm tắt lời giải":"Solution summary",
+    "Nguồn S và máy thu G cách nhau x trên mặt đất; mặt phản xạ nằm ngang ở độ sâu h, vận tốc lớp trên V.":"Source S and geophone G are a distance x apart at the surface; the horizontal reflector is at depth h, with velocity V above it.",
+    "Lấy điểm ảnh S′ đối xứng với S qua mặt phản xạ, nằm dưới S ở độ sâu 2h. Đường tia S → A → G dài bằng đoạn thẳng S′G.":"Place the image point S′, the mirror of S in the reflector, at depth 2h below S. The ray path S → A → G has the same length as the straight line S′G.",
+    "Quãng đường truyền: L = √(x² + (2h)²).":"Path length: L = √(x² + (2h)²).",
+    "Thời gian truyền: t = √(x² + 4h²) / V. Đây là một hyperbol; tại x = 0, t₀ = 2h/V.":"Travel time: t = √(x² + 4h²) / V, a hyperbola; at x = 0, t₀ = 2h/V."
   };
   var EN_ATTR={
     "Ảnh chân dung Nguyễn Duy Tính":"Portrait of Nguyễn Duy Tính","Mục lục":"Sections","Sơ đồ bố cục trang":"Page layout sketch",
     "Bài thuyết trình Tổng quan môn học Địa Vật Lý Ứng Dụng":"Presentation: Applied Geophysics course overview",
+    "Bài thuyết trình Máy đo điện trở suất ABEM Terrameter":"Presentation: the ABEM Terrameter resistivity meter",
     "Bài tập Phương pháp thời gian trễ":"Assignment: the delay-time method",
     "Bằng Gold Certificate PetroCup World Student Olympics 2025 của đội Proterozoic, Trường Đại học Dầu khí Việt Nam":"PetroCup World Student Olympics 2025 Gold Certificate for team Proterozoic, PetroVietnam University",
-    "Đóng":"Close"
+    "Đóng":"Close",
+    "Bài làm tay: sơ đồ tia phản xạ S–A–G, điểm ảnh S' ở độ sâu 2h và phương trình t = √(x² + (2h)²)/V":"Handwritten answer: reflection ray S–A–G, image point S' at depth 2h and t = √(x² + (2h)²)/V"
   };
+  /* Môn học: thu gọn / mở danh sách bài tập */
+  var ctBtn=document.getElementById('course-toggle'), ctBody=document.getElementById('course-body');
+  function setCourse(open){
+    ctBody.hidden=!open; ctBtn.setAttribute('aria-expanded',open?'true':'false');
+    var lb=ctBtn.querySelector('.ct-label'); lb.textContent=tr(open?'Ẩn các bài tập':'Xem các bài tập');
+    if(nodes){nodes.forEach(function(n){if(n[0]===lb){n[1]=open?'Ẩn các bài tập':'Xem các bài tập';n[2]=EN[n[1]]}})}
+  }
+  ctBtn.addEventListener('click',function(){setCourse(ctBody.hidden)});
+  function openForHash(){
+    var id=location.hash.slice(1); if(!id)return;
+    var el=document.getElementById(id);
+    if(el&&ctBody.contains(el)&&ctBody.hidden){setCourse(true);setTimeout(function(){el.scrollIntoView({block:'start'})},30)}
+  }
+  window.addEventListener('hashchange',openForHash);
   var dlg=document.getElementById('cert-dialog');
   function openCert(){ if(dlg.showModal){dlg.showModal()}else{dlg.setAttribute('open','')} }
   function closeCert(){ if(dlg.close){dlg.close()}else{dlg.removeAttribute('open')} }
@@ -907,6 +1031,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
   });
   var saved=null;try{saved=localStorage.getItem('site-lang')}catch(e){}
   if(saved==='en')setLang('en');
+  openForHash();
   var links=[].slice.call(document.querySelectorAll('.nav a'));
   if('IntersectionObserver' in window){
     var io=new IntersectionObserver(function(es){
